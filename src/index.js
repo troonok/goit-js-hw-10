@@ -18,7 +18,6 @@ function onSearch(event) {
         fetchCountries(name)
             .then(renderCounty)
             .catch(error => { Notify.failure("Oops, there is no country with that name") })
-            .finally(() => input.reset);
     } 
 }
 function cleanInput(){

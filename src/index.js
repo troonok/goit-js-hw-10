@@ -13,16 +13,18 @@ input.addEventListener('input' , debounce (onSearch , DEBOUNCE_DELAY));
 
 function onSearch(event) {
     const name = input.value.trim();
+    cleanInput();
     if (name) {
         fetchCountries(name)
             .then(renderCounty)
             .catch(error => { Notify.failure("Oops, there is no country with that name") })
             .finally(() => input.reset);
-    } else {
-        list.innerHTML = ""
+    } 
+}
+function cleanInput(){
+    list.innerHTML = ""
         countryInfo.innerHTML=""
         return
-    } 
 }
 
 function renderCounty(country) {
